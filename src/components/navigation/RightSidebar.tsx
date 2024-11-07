@@ -1,19 +1,19 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { currentUser } from "@clerk/nextjs/server";
+// import { currentUser } from "@clerk/nextjs/server";
 
-import { db } from "@/lib/db";
-import AddTag from "@/components/navigation/AddTag";
-import TagCard from "@/components/TagCard";
+// import { db } from "@/lib/db";
+// import AddTag from "@/components/navigation/AddTag";
+// import TagCard from "@/components/TagCard";
 
 const RightSidebar = async () => {
-  const user = await currentUser();
+  // const user = await currentUser();
 
-  const userTags = await db.tag.findMany({
-    where: {
-      userId: user?.id,
-      questionId: null,
-    },
-  });
+  // const userTags = await db.tag.findMany({
+  //   where: {
+  //     userId: user?.id,
+  //     questionId: null,
+  //   },
+  // });
 
   //   console.log(userTags);
   return (
@@ -26,21 +26,21 @@ const RightSidebar = async () => {
       <SignedIn>
         <h1 className="h3-bold text-dark200_light900">Your Tags</h1>
         {/* empty tag */}
-        {userTags.length === 0 && (
+        {/* {userTags.length === 0 && (
           <div className="text-neutral-400 mt-2">You have No Tags</div>
-        )}
+        )} */}
         {/* add tag */}
-        <AddTag />
+        {/* <AddTag /> */}
         {/* show tags */}
         <div className="flex flex-col gap-2 mt-2">
-          {userTags.map((tag) => (
+          {/* {userTags.map((tag) => (
             <TagCard
               key={tag.id}
               tag={tag.tag}
               id={tag.id}
               use="RightSidebar"
             />
-          ))}
+          ))} */}
         </div>
       </SignedIn>
     </div>
